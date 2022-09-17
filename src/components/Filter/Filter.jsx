@@ -1,16 +1,21 @@
 import { React } from 'react';
 
-const Filter = ({ onSearch }) => {
+const Filter = ({ value, onSearch }) => {
   const handleSearch = event => {
     console.log(event.currentTarget.value);
     onSearch(event.currentTarget.value);
   };
   return (
     <form>
-      <lable>
+      <label>
         Find contact by Name <br />
-        <input type="text" name="search" onChange={handleSearch}></input>
-      </lable>
+        <input
+          type="text"
+          name="search"
+          value={value}
+          onChange={handleSearch}
+        ></input>
+      </label>
     </form>
   );
 };

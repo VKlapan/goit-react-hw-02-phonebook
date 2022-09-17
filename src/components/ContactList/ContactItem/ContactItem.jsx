@@ -1,13 +1,13 @@
 import { ContactItemElement, ItemContent } from './ContactItem.styled';
 
-const ContactItem = ({ contact }) => {
-  const { name, number } = contact;
+const ContactItem = ({ contact, onDelete }) => {
+  const { id, name, number } = contact;
 
   return (
     <ContactItemElement>
       <ItemContent>{name}</ItemContent>
       <ItemContent>{number}</ItemContent>
-      <button> DELETE</button>
+      <button onClick={() => onDelete(id)}> DELETE</button>
     </ContactItemElement>
   );
 };

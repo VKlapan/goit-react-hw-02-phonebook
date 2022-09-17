@@ -16,6 +16,7 @@ class ContactForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
     this.props.onSubmit(this.state);
+    this.setState({ name: '', number: '' });
   };
 
   render() {
@@ -43,6 +44,7 @@ class ContactForm extends Component {
               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
+              value={this.state.number}
               onChange={this.handleChange}
             />
           </LableForm>
