@@ -1,20 +1,14 @@
-import { React, Component } from 'react';
+import { React } from 'react';
 import ContactItem from './ContactItem/ContactItem';
+import { ContactListBlock } from './ContactList.styled';
 
-class ContactList extends Component {
-  constructor({ contacts }) {
-    super();
-    this.contacts = contacts;
-    console.log(contacts);
-  }
-  render() {
-    return (
-      <ul>
-        {this.contacts.map(contact => (
-          <ContactItem key={contact.id} contact={contact} />
-        ))}
-      </ul>
-    );
-  }
-}
+const ContactList = ({ contacts }) => {
+  return (
+    <ContactListBlock>
+      {contacts.map(contact => (
+        <ContactItem key={contact.id} contact={contact} />
+      ))}
+    </ContactListBlock>
+  );
+};
 export default ContactList;

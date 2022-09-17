@@ -1,12 +1,14 @@
+import { ContactItemElement, ItemContent } from './ContactItem.styled';
+
 const ContactItem = ({ contact }) => {
   const { name, number } = contact;
-  console.log(contact);
 
   return (
-    <li>
-      <span>{name}</span>
-      <span>{number}</span>
-    </li>
+    <ContactItemElement>
+      <ItemContent>{name}</ItemContent>
+      <ItemContent>{number}</ItemContent>
+      <button> DELETE</button>
+    </ContactItemElement>
   );
 };
 

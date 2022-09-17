@@ -1,4 +1,5 @@
 import { React, Component } from 'react';
+import { nanoid } from 'nanoid';
 import ContactForm from './ContactForm/ContactForm';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
@@ -14,13 +15,32 @@ class App extends Component {
     filter: '',
   };
 
+  addContact = ({ name, number }) => {
+    const newContact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+
+    this.setState(prevStat => ({
+      contacts: [newContact, ...prevStat.contacts],
+    }));
+  };
+
+  findContact = searchName => {
+    const foundContacts = this.state.contacts.filter(contact =>
+      contact.name.includes(searchName)
+    );
+    console.log(foundContacts);
+  };
+
   styleDefault = {
     height: '100vh',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: 40,
+    fontSize: 20,
     color: '#010101',
   };
 
@@ -29,9 +49,9 @@ class App extends Component {
       <div style={this.styleDefault}>
         React homework template
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
-        <Filter />
+        <Filter onSearch={this.findContact} />
         <ContactList contacts={this.state.contacts} />{' '}
       </div>
     );

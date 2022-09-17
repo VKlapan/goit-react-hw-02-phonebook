@@ -1,9 +1,18 @@
-import { React, Component } from 'react';
+import { React } from 'react';
 
-class Filter extends Component {
-  render() {
-    return <div>Filter</div>;
-  }
-}
+const Filter = ({ onSearch }) => {
+  const handleSearch = event => {
+    console.log(event.currentTarget.value);
+    onSearch(event.currentTarget.value);
+  };
+  return (
+    <form>
+      <lable>
+        Find contact by Name <br />
+        <input type="text" name="search" onChange={handleSearch}></input>
+      </lable>
+    </form>
+  );
+};
 
 export default Filter;
