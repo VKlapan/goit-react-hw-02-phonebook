@@ -1,12 +1,13 @@
+import PropTypes from 'prop-types';
 import { React } from 'react';
+import { FilterForm } from './Filter.styled';
 
 const Filter = ({ value, onSearch }) => {
   const handleSearch = event => {
-    console.log(event.currentTarget.value);
     onSearch(event.currentTarget.value);
   };
   return (
-    <form>
+    <FilterForm>
       <label>
         Find contact by Name <br />
         <input
@@ -16,8 +17,13 @@ const Filter = ({ value, onSearch }) => {
           onChange={handleSearch}
         ></input>
       </label>
-    </form>
+    </FilterForm>
   );
 };
 
 export default Filter;
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+  onSearch: PropTypes.func.isRequired,
+};

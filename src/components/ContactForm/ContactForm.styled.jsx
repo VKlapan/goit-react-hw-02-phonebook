@@ -3,7 +3,8 @@ import styled from '@emotion/styled';
 export const ContactAddForm = styled.form`
   display: flex;
   flex-direction: column;
-  background-color: 'grey';
+  background-color: #00ffe1;
+  padding: 20px;
 
   font-size: 12px;
 `;
